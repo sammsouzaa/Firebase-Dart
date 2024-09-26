@@ -1,5 +1,4 @@
 class ImovelAllData_Model {
-    
   String titulo;
   String endereco;
   double preco;
@@ -10,6 +9,8 @@ class ImovelAllData_Model {
   int bedrooms;
   int bathrooms;
   String categoria;
+  String imagemTitulo; // Nova propriedade para imagem principal
+  List<String> outrasImagens; // Lista para 4 imagens adicionais
 
   // Construtor
   ImovelAllData_Model({
@@ -23,6 +24,8 @@ class ImovelAllData_Model {
     required this.bedrooms,
     required this.bathrooms,
     required this.categoria,
+    required this.imagemTitulo, // Adicionada
+    required this.outrasImagens, // Adicionada
   });
 
   // Método para converter um objeto JSON em uma instância do modelo
@@ -38,6 +41,8 @@ class ImovelAllData_Model {
       bedrooms: json['bedrooms'],
       bathrooms: json['bathrooms'],
       categoria: json['categoria'],
+      imagemTitulo: json['imagemTitulo'], // Adicionada
+      outrasImagens: List<String>.from(json['outrasImagens']), // Adicionada
     );
   }
 
@@ -54,6 +59,8 @@ class ImovelAllData_Model {
       'bedrooms': bedrooms,
       'bathrooms': bathrooms,
       'categoria': categoria,
+      'imagemTitulo': imagemTitulo, // Adicionada
+      'outrasImagens': outrasImagens, // Adicionada
     };
   }
 }

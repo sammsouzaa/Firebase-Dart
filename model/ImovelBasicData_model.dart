@@ -1,10 +1,10 @@
 class ImovelBasicData_Model {
-    
   String titulo;
   String endereco;
   double preco;
   String basicDesc;
   String completeDesc;
+  String imagemTitulo; // Nova propriedade para imagem principal
 
   // Construtor
   ImovelBasicData_Model({
@@ -13,6 +13,7 @@ class ImovelBasicData_Model {
     required this.preco,
     required this.basicDesc,
     required this.completeDesc,
+    required this.imagemTitulo, // Adicionada
   });
 
   // Método para converter um objeto JSON em uma instância do modelo
@@ -23,6 +24,7 @@ class ImovelBasicData_Model {
       preco: json['preco'],
       basicDesc: json['basicDesc'],
       completeDesc: json['completeDesc'],
+      imagemTitulo: json['imagemTitulo'], // Adicionada
     );
   }
 
@@ -34,6 +36,7 @@ class ImovelBasicData_Model {
       'preco': preco,
       'basicDesc': basicDesc,
       'completeDesc': completeDesc,
+      'imagemTitulo': imagemTitulo, // Adicionada
     };
   }
 }

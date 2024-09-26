@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'imovel_dao.dart';
 import 'imovel_basic_data_model.dart';
 import 'imovel_all_data_model.dart';
@@ -25,12 +26,12 @@ class ImovelController {
     }
   }
 
-  // Obter um imóvel completo por ID
-  Future<ImovelAllData_Model?> obterImovelCompletoPorId(String id) async {
-    if (id.isNotEmpty) {
-      return await _imovelDAO.obterImovelCompletoPorId(id);
+  // Salvar imóvel completo com imagens
+  Future<void> salvarImovelCompleto(ImovelAllData_Model imovel, File imagemTitulo, List<File> outrasImagens) async {
+    if (imovel != null && imagemTitulo != null && outrasImagens.length == 4) {
+      await _imovelDAO.salvarImovelCompleto(imovel, imagemTitulo, outrasImagens);
     } else {
-      throw Exception('O ID não pode ser vazio!');
+      throw Exception('É necessário fornecer todas as 5 imagens (1 título + 4 outras).');
     }
   }
 }
